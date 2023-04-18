@@ -8,21 +8,21 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ProductDetailComponent implements OnInit {
   productId: any;
-
-  constructor(private route: ActivatedRoute) {}
-  public itemDetail:any;
-
+  //@Input() itemDetail: any[];
+  constructor(private route: ActivatedRoute) {
+    //this.itemDetail = this.route.snapshot.params[''];
+  }
+  
   @Input()
-  set products(value:any) {
+  itemDetail: any[];
+  set products(value: any) {
     if(value) {
       this.itemDetail = value;
     }
   }
 
   ngOnInit() {
-    this.productId = this.route.snapshot.params['id'];
-    // this.productId = this.route.paramMap.pipe(
-    // map((params: ParamMap) => params.get('id'))
+    this.productId = this.route.snapshot.params[':id'];
     console.log('array is', this.itemDetail);
   }
 }
