@@ -1,28 +1,26 @@
- <!-- Section-->
- <section class="py-5">
-    <div class="container px-4 px-lg-5 mt-5">
-        <div class="row">
-            <div >
-              <div class="col-4 d-inline-flex p-10" *ngFor="let p of products; let i = index">
-                <div class="card h-100">
+<!-- Section-->
+<section class="py-5">
+    <div class="container mt-5">
+        <div class="row row-flex">
+            <div class="col-md-4 col-sm-6 col-xs-12 p-10" *ngFor="let p of products; let i = index">
+                <div class="content card">
                     <!-- Product image-->
-                    <img class="card-img-top" src={{p.thumbnail}} alt="..." />
+                    <img class="img-fluid img-thumbnail" src={{p.thumbnail}} alt="..." />
                     <!-- Product details-->
                     <div class="card-body p-4">
                         <div class="text-center">
                             <!-- Product name-->
                             <h5 class="fw-bolder">{{p.title}}</h5>
                             <!-- Product price-->
-                           {{p.price}}
-                           <p>{{p.description}}</p>
+                            <p>${{p.price}}</p>
+                            <p>{{p.description}}</p>
                         </div>
                     </div>
                     <!-- Product actions-->
-                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                    <div class="p-4 pt-0 border-top-0 bg-transparent">
                         <div class="text-center"><a class="btn btn-outline-dark mt-auto" [routerLink]="[ '/list', p.id]">View Product</a></div>
                     </div>
-                </div>   
-            </div>
+                </div>
             </div>
         </div>
     </div>

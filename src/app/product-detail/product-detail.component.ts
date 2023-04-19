@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ApiService } from '../api.service';
+import { products } from '../product';
 
 @Component({
   selector: 'app-product-detail',
@@ -8,21 +10,18 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ProductDetailComponent implements OnInit {
   productId: any;
-  //@Input() itemDetail: any[];
-  constructor(private route: ActivatedRoute) {
-    //this.itemDetail = this.route.snapshot.params[''];
+  itemDetail: any[];
+  item: any[];
+  product:any;
+  constructor(private route: ActivatedRoute, private api: ApiService) {
+    
   }
   
-  @Input()
-  itemDetail: any[];
-  set products(value: any) {
-    if(value) {
-      this.itemDetail = value;
-    }
-  }
-
   ngOnInit() {
     this.productId = this.route.snapshot.params[':id'];
-    console.log('array is', this.itemDetail);
+
+    // this.route.paramMap.subscribe(params => {
+    //   this.product = products[+params.get('productId')];
+    // });
   }
 }

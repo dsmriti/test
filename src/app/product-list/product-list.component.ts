@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ApiService } from '../api.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-product-list',
@@ -23,6 +23,8 @@ export class ProductListComponent {
 
   navigateToProduct(id:any) {
     this.router.navigate(['/list', id]);
+    //this.router.getCurrentNavigation().extras.state;
+   
   }
 
 }
